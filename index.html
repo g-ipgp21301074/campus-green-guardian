@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园绿色守护计划</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background: #f0fdf4; 
+            padding: 40px 20px;
+        }
+        h1 { color: #065f46; }
+        #tree { font-size: 80px; margin: 30px 0; min-height: 120px; }
+        .leaf { color: #16a34a; display: inline-block; animation: grow 0.5s ease-out; margin: 2px; }
+        @keyframes grow { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        button { 
+            padding: 20px 40px; 
+            font-size: 22px; 
+            background: #16a34a; 
+            color: white; 
+            border: none; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        button:active { transform: scale(0.95); }
+        .counter { font-size: 18px; color: #4b5563; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🌱 校园绿色守护计划</h1>
+    <p>完成光盘、节水或环保任务后，请点击下方按钮为我们的希望之树添绿：</p>
+    
+    <div id="tree">🌳</div>
+    
+    <button onclick="addLeaf()">我今天保护地球了！</button>
+    
+    <div class="counter">已有 <span id="count">0</span> 名同学参与了环保行动</div>
+
+    <script>
+        let count = 0;
+        function addLeaf() {
+            count++;
+            document.getElementById('count').innerText = count;
+            const tree = document.getElementById('tree');
+            const leaf = document.createElement('span');
+            leaf.innerHTML = '🍃';
+            leaf.className = 'leaf';
+            tree.appendChild(leaf);
+        }
+    </script>
+</body>
+</html>
